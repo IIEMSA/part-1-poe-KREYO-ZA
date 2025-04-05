@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EventEaseWebApp.Models.Venue>
+
+@{
+    // Set the page title that shows in the browser/tab
+    ViewData["Title"] = "Venues";
+}
+
+<!-- Page Heading -->
+<h1>Venues</h1>
+
+<!-- Link to create a new venue (goes to the Create view) -->
+<p>
+    <a asp-action="Create">Create New Venue</a>
+</p>
+
+<!-- Bootstrap-styled table to list all venues -->
+<table class="table">
+    <thead>
+        <tr>
+            <!-- Table column headers -->
+            <th>Venue Name</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Image</th>
+            <th></th> <!-- Action column (Edit, Details, Delete) -->
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop through each venue in the model -->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!-- Display venue properties -->
+                <td>@item.VenueName</td>
+                <td>@item.Location</td>
+                <td>@item.Capacity</td>
+
+                <!-- Display venue image using the ImageUrl -->
+                <td><img src="@item.ImageUrl" width="100" /></td>
+
+                <!-- Action links for Edit, Details, and Delete -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.VenueId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.VenueId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VenueId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

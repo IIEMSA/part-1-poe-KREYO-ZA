@@ -1,0 +1,72 @@
+﻿@model EventEaseWebApp.Models.Venue
+
+@{
+    // Set the title for the browser/tab
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Page Heading -->
+<h1>Edit</h1>
+
+<!-- Section heading -->
+<h4>Venue</h4>
+<hr />
+
+<!-- Bootstrap row for layout -->
+<div class="row">
+    <div class="col-md-4">
+        <!-- Form that posts to the Edit action in VenuesController -->
+        <form asp-action="Edit">
+            <!-- Display model validation errors (summary) -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Hidden field to keep the VenueId (so we know which venue to update) -->
+            <input type="hidden" asp-for="VenueId" />
+
+            <!-- VenueName input -->
+            <div class="form-group">
+                <label asp-for="VenueName" class="control-label"></label>
+                <input asp-for="VenueName" class="form-control" />
+                <span asp-validation-for="VenueName" class="text-danger"></span>
+            </div>
+
+            <!-- Location input -->
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+
+            <!-- Capacity input -->
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+
+            <!-- ImageUrl input -->
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <!-- Submit button -->
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Navigation back to venue list -->
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<!-- Scripts section: loads client-side validation scripts -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

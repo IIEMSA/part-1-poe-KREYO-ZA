@@ -1,0 +1,63 @@
+﻿@model EventEaseWebApp.Models.Venue
+
+@{
+    // Set the page title displayed in the browser/tab
+    ViewData["Title"] = "Details";
+}
+
+<!-- Page Header -->
+<h1>Details</h1>
+
+<div>
+    <!-- Section Label for clarity -->
+    <h4>Venue</h4>
+    <hr />
+
+    <!-- Display Venue Properties using a Description List -->
+    <dl class="row">
+        <!-- VenueName label (auto-generated from model) -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VenueName)
+        </dt>
+        <!-- VenueName value -->
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VenueName)
+        </dd>
+
+        <!-- Location label -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <!-- Location value -->
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <!-- Capacity label -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+        <!-- Capacity value -->
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <!-- Image URL label -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <!-- Image URL value -->
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+    </dl>
+</div>
+
+<!-- Navigation Buttons -->
+<div>
+    <!-- Link to edit this specific venue -->
+    <a asp-action="Edit" asp-route-id="@Model?.VenueId">Edit</a> |
+
+    <!-- Link to go back to the full venue list -->
+    <a asp-action="Index">Back to List</a>
+</div>

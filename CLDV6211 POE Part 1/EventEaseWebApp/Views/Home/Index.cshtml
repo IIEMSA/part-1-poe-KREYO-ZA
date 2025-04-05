@@ -1,0 +1,59 @@
+﻿<!-- Metadata -->
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- Heading and Description -->
+<h1>Welcome to Event Ease Bookings Management Page</h1>
+<p>Please select an option below</p>
+
+<!-- Manager Buttons -->
+<div class="mb-4">
+    <!-- Manage Venues -->
+    <a class="btn btn-primary me-2" asp-controller="Venues" asp-action="Index">Manage Venues</a>
+
+    <!-- Manage Events -->
+    <a class="btn btn-success me-2" asp-controller="Events" asp-action="Index">Manage Events</a>
+    
+    <!-- Manage Bookings -->
+    <a class="btn btn-info" asp-controller="Bookings" asp-action="Index">Manage Bookings</a>
+</div>
+
+<hr />
+
+<!-- Quick Summary -->
+<h4>Summary:</h4>
+<ul>
+    <!-- Total Venues -->
+    <li>Total Venues: <strong>@ViewData["VenueCount"]</strong></li>
+
+    <!-- Total Events -->
+    <li>Total Events: <strong>@ViewData["EventCount"]</strong></li>
+
+    <!-- Total Bookings -->
+    <li>Total Bookings: <strong>@ViewData["BookingCount"]</strong></li>
+</ul>
+
+<!-- Display the last created booking if one was made -->
+@if (ViewData["LastBooking"] is EventEaseWebApp.Models.Booking booking)
+{
+    <hr />
+
+    <!-- Heading -->
+    <h4>Latest Booking Created:</h4>
+
+    <!-- Booking Details -->
+    <ul>
+        <!-- Booking ID -->
+        <li><strong>Booking ID:</strong> @booking.BookingId</li>
+
+        <!-- Event Name -->
+        <li><strong>Event:</strong> @booking.Event?.EventName</li>
+
+        <!-- Venue Name -->
+        <li><strong>Venue:</strong> @booking.Venue?.VenueName</li>
+
+        <!-- Booking Date -->
+        <li><strong>Date:</strong> @booking.BookingDate.ToShortDateString()</li>
+    </ul>
+}

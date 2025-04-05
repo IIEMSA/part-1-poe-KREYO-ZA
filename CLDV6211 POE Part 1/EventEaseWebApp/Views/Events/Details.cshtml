@@ -1,0 +1,60 @@
+﻿@model EventEaseWebApp.Models.Event
+
+<!-- Metadata -->
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!--Heading  -->
+<h1>Details</h1>
+
+<!-- Content -->
+<div>
+    <h4>Event</h4>
+
+    <hr />
+
+    <!-- Event Details -->
+    <dl class="row">
+        <!-- Event Name -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <!-- Event Date -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventDate)
+        </dd>
+
+        <!-- Event Description -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <!-- Event Venue -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Venue.VenueId)
+        </dd>
+    </dl>
+</div>
+
+<!-- Buttons -->
+<div>
+    <!-- Edit Button -->
+    <a asp-action="Edit" asp-route-id="@Model?.EventId">Edit</a> |
+
+    <!-- Back Button -->
+    <a asp-action="Index">Back to List</a>
+</div>
